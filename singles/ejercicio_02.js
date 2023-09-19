@@ -11,7 +11,7 @@ const rl = readline.createInterface({
 function pregunta(texto) {
   return new Promise((resolve, reject) => {
     rl.question(texto, (ingreso) => {
-      resolve(ingreso)
+      resolve(parseInt(ingreso))
     })
   })
 }
