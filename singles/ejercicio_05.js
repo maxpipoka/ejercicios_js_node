@@ -4,40 +4,34 @@
    ● 0-3 muy deficiente, 3-5 insuficiente, 5-6 suficiente, 6-7 bien,
    7-9 notable, 9-10 sobresaliente */
 
-import readline from 'node:readline'
+import { preguntaInt } from './pregunta.js'
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+async function evaluacion () {
+  const valor = await preguntaInt('Ingrese la calificación: ')
 
-function evaluacion () {
-  rl.question('Ingrese la calificación: ', (valor) => {
-    if ((parseInt(valor) > 0) && (parseInt(valor) <= 3)) {
-      console.log('DEFICIENTE')
-    }
+  if ((valor > 0) && (valor <= 3)) {
+    console.log('DEFICIENTE')
+  }
 
-    if ((parseInt(valor) > 3) && (parseInt(valor) <= 5)) {
-      console.log('INSUFICIENTE')
-    }
+  if ((valor > 3) && (valor <= 5)) {
+    console.log('INSUFICIENTE')
+  }
 
-    if ((parseInt(valor) > 5) && (parseInt(valor) <= 6)) {
-      console.log('SUFICIENTE')
-    }
+  if ((valor > 5) && (valor <= 6)) {
+    console.log('SUFICIENTE')
+  }
 
-    if ((parseInt(valor) > 6) && (parseInt(valor) <= 7)) {
-      console.log('BIEN')
-    }
+  if ((valor > 6) && (valor <= 7)) {
+    console.log('BIEN')
+  }
 
-    if ((parseInt(valor) > 7) && (parseInt(valor) <= 9)) {
-      console.log('NOTABLE')
-    }
+  if ((valor > 7) && (valor <= 9)) {
+    console.log('NOTABLE')
+  }
 
-    if ((parseInt(valor) > 9) && (parseInt(valor) <= 10)) {
-      console.log('SOBRESALIENTE')
-    }
-    rl.close()
-  })
+  if ((valor > 9) && (valor <= 10)) {
+    console.log('SOBRESALIENTE')
+  }
 }
 
 evaluacion()

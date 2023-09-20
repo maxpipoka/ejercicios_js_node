@@ -3,20 +3,14 @@
    multiplicar el valor ingresado por el 1 hasta llegar al 10.
    REALIZAR esto empleando la estructura de control FOR */
 
-import readline from 'node:readline'
+import { preguntaInt } from './pregunta.js'
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+async function multiplicar () {
+  const valor = await preguntaInt('Ingrese un número para generar la tabla: ')
 
-function multiplicar () {
-  rl.question('Ingrese un número para generar la tabla: ', (valor) => {
-    for (let i = 0; i <= 10; i++) {
-      console.log(valor + ' x ' + i + ' = ' + (valor * i))
-      rl.close()
-    }
-  })
+  for (let i = 0; i <= 10; i++) {
+    console.log(valor + ' x ' + i + ' = ' + (valor * i))
+  }
 }
 
 multiplicar()

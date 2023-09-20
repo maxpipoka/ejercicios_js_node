@@ -2,18 +2,12 @@
 luego lo MUESTRE por pantalla con un mensaje de bienvenida como el siguiente
 “Hola <usuario>”. Donde <usuario> es el nombre ingresado. */
 
-import readline from 'node:readline'
+import { preguntaStr } from './pregunta.js'
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+async function saludo () {
+  const nombre = await preguntaStr('Ingrese su nombre: ')
 
-function saludo () {
-  rl.question('Ingrese su nombre: ', (nombre) => {
-    console.log('Hola ' + nombre.toUpperCase())
-    rl.close()
-  })
+  console.log('Hola ' + nombre.toUpperCase())
 }
 
 saludo()

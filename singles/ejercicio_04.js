@@ -3,22 +3,16 @@
 el valor ingresado por el 1 hasta llegar al 10.
 REALIZAR esto empleando la estructura de control WHILE. */
 
-import readline from 'node:readline'
+import { preguntaInt } from './pregunta.js'
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+async function multiplicar () {
+  const valor = await preguntaInt('Ingrese un número para generar la tabla: ')
 
-function multiplicar () {
-  rl.question('Ingrese el numero para la tabla: ', (valor) => {
-    let i = 0
-    while (i <= 10) {
-      console.log(valor + ' x ' + i + ' = ' + (valor * i))
-      i++
-    }
-    rl.close()
-  })
+  let i = 0
+  while (i <= 10) {
+    console.log(valor + ' x ' + i + ' = ' + (valor * i))
+    i++
+  }
 }
 
 multiplicar()
